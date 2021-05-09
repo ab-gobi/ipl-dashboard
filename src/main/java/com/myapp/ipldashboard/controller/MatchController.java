@@ -24,7 +24,7 @@ public MatchController(TeamRepository teamRepository,MatchRepository matchReposi
         this.matchRepository = matchRepository;
     }
 
-@GetMapping("/Team/{teamName}")
+@GetMapping("/team/{teamName}")
 public Team getTeamInfo(@PathVariable String teamName){
     Team team = this.teamRepository.findByTeamName(teamName);
     Pageable pageable = PageRequest.of(0,4);
