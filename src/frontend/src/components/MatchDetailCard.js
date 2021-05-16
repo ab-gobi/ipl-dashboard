@@ -2,11 +2,12 @@ import { React } from 'react';
 import { Link } from 'react-router-dom';
 import './MatchDetailCard.scss';
 
-export const MatchDetailCard = ({teamName,match}) => {
+export const MatchDetailCard = (props) => {
+    const match=props.match;
     if(!match) return null;
-    const otherTeam = match.team1 === teamName ? match.team2 : match.team1;
+    const otherTeam = match.team1 === props.teamName ? match.team2 : match.team1;
     const otherTeamRoute = `/teams/${otherTeam}`;
-    const isMatchWon = teamName===match.matchWinner;
+    const isMatchWon = props.teamName===match.matchWinner;
     return (
       <div className = { isMatchWon ? 'MatchDetailCard won-card' : 'MatchDetailCard lost-card' } >
         <div>
