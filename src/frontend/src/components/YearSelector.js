@@ -13,7 +13,9 @@ for(let i=startYear;i<=endYear;i++){
     return (
         <ol className="YearSelector">
             {years.map (year=>
-                <li><Link to={`/team/${teamName}/matches/${year}`}>{ year }</Link></li>)}
+                <li key={year}>
+                    <Link to={`/team/${teamName}/matches/${year}`}>{ year }</Link>
+                    </li>)}
         </ol>
     )
 }
